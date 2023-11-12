@@ -97,11 +97,21 @@ public class DialogueUI : MonoBehaviour
 
     }
 
-    public void ChangeDialogueBox(DialogueUIBox newBox)
+    public void ChangeDialogueBox(bool isActorBox, DialogueActorObject actor)
     {
         activeBox.gameObject.SetActive(false);
         activeBox.active = false;
-        activeBox = newBox;
+
+        if (isActorBox)
+        {
+            activeBox = left;
+            activeBox.name = actor.name;
+            activeBox.image.sprite = actor.actorFaceImage;
+        }
+        else
+        {
+            activeBox = narration;
+        }
         activeBox.gameObject.SetActive(true);
         activeBox.active = true;
     }

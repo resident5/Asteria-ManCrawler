@@ -10,25 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf783117b5250de49ab5dd520e7729b3, type: 3}
-  m_Name: Intro1_b
+  m_Name: Intro1_boss1
   m_EditorClassIdentifier: 
   dialogueList:
-  - idLabel: Intro1_b_0
+  - idLabel: Intro1_boss1_0
     diagEvents: 00000000
     branch: {fileID: 0}
     variables: 
     seenText: 0
-    isActor: 0
+    isActor: 1
     actorIndex: 0
-    text: This is choice 2 ignore the other one
-  - idLabel: Intro1_b_1
+    text: Sorry about that your friends are a little busy at the moment
+  - idLabel: Intro1_boss1_1
     diagEvents: 00000000
     branch: {fileID: 0}
     variables: 
     seenText: 0
-    isActor: 0
+    isActor: 1
     actorIndex: 0
-    text: YEAH
+    text: Now where were we my little flesh light
+  - idLabel: 
+    diagEvents: 00000000
+    branch: {fileID: 0}
+    variables: 
+    seenText: 0
+    isActor: 1
+    actorIndex: 0
+    text: 'You should '
   actors:
   - {fileID: 11400000, guid: 07ab167a10eee7c4b9e344af8383b647, type: 2}
   nextDialogue: {fileID: 0}

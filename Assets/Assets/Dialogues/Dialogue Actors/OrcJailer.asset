@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42fb273af7adfc342bbc78d4645b979f, type: 3}
-  m_Name: Enemy1
+  m_Name: OrcJailer
   m_EditorClassIdentifier: 
-  actorName: Enemy1
-  actorFaceImage: {fileID: 0}
-  actorTextBoxImage: {fileID: 0}
+  actorName: Orc Jailer
+  actorFaceImage: {fileID: 21300000, guid: 90036a223142da34aafd245ac806ac97, type: 3}
+  actorTextBoxImage: {fileID: 21300000, guid: 90036a223142da34aafd245ac806ac97, type: 3}
   actorFont: {fileID: 0}

@@ -10,25 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf783117b5250de49ab5dd520e7729b3, type: 3}
-  m_Name: Intro1_b
+  m_Name: Test
   m_EditorClassIdentifier: 
   dialogueList:
-  - idLabel: Intro1_b_0
+  - idLabel: Test_0
+    diagEvents: 00000000
+    branch: {fileID: 0}
+    variables: 
+    seenText: 0
+    isActor: 1
+    actorIndex: 0
+    text: Testing Player
+  - idLabel: Test_1
     diagEvents: 00000000
     branch: {fileID: 0}
     variables: 
     seenText: 0
     isActor: 0
     actorIndex: 0
-    text: This is choice 2 ignore the other one
-  - idLabel: Intro1_b_1
+    text: Testing Narration
+  - idLabel: Test_2
     diagEvents: 00000000
     branch: {fileID: 0}
     variables: 
     seenText: 0
     isActor: 0
     actorIndex: 0
-    text: YEAH
+    text: Testing Narration again!
+  - idLabel: Test_3
+    diagEvents: 0000000004000000
+    branch: {fileID: 11400000, guid: 5740e0e1d4938d8478ff0f379d962de9, type: 2}
+    variables: 
+    seenText: 0
+    isActor: 0
+    actorIndex: 0
+    text: Testing branch
   actors:
   - {fileID: 11400000, guid: 07ab167a10eee7c4b9e344af8383b647, type: 2}
+  - {fileID: 11400000, guid: 654bccbb9f5895643ba1460a8c491942, type: 2}
   nextDialogue: {fileID: 0}

@@ -1,19 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-
-public class DialogueVariable : MonoBehaviour
+public class DialogueVariable
 {
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public Dictionary<string, int> variableList = new Dictionary<string, int>();
 }

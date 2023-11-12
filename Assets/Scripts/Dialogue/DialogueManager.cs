@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
+    #region Singleton
     private static DialogueManager instance;
     public static DialogueManager Instance
     {
@@ -18,7 +18,9 @@ public class DialogueManager : MonoBehaviour
             return instance;
         }
     }
+    #endregion
 
+    #region Dialogue Event Handler
     public enum DIALOGUEEVENT
     {
         TEXT,
@@ -33,14 +35,29 @@ public class DialogueManager : MonoBehaviour
         NONPLAYER,
         NARRATOR
     };
+    #endregion
 
-    public Dialogue currentDialogue;
+    public DialogueObject currentDialogue;
     public DialogueUI dialogueUI;
     public DialogueChoiceManager choiceManager;
+    public List<int> variables;
+
+    public DialogueBranchObject currentChoices;
 
     private void Start()
     {
+        PlayDialogue();
+    }
+
+    public void PlayDialogue()
+    {
+        StopAllCoroutines();
         StartCoroutine(StartDialogue());
+    }
+
+    public void ChangeDialogue(DialogueObject nextDialogue)
+    {
+        currentDialogue = nextDialogue;
     }
 
     IEnumerator StartDialogue()
@@ -48,76 +65,58 @@ public class DialogueManager : MonoBehaviour
         if (currentDialogue != null)
         {
             var diagList = currentDialogue.dialogueList;
-            var diagActors = currentDialogue.actors[0];
+            var diagActors = currentDialogue.actors;
 
             foreach (var diag in diagList)
             {
                 bool done = false;
 
-                switch (diag.diagEvent)
+                foreach (var e in diag.diagEvents)
                 {
-                    case DIALOGUEEVENT.TEXT:
-                        if (!diag.isActor)
-                        {
-                            dialogueUI.ChangeDialogueBox(dialogueUI.narration);
-                        }
-                        else
-                        {
-                            dialogueUI.ChangeDialogueBox(dialogueUI.left);
-                        }
-                        dialogueUI.ChangeText(diag.text);
-                        if (dialogueUI.isTypingText)
-                        {
+                    switch (e)
+                    {
+                        case DIALOGUEEVENT.TEXT:
+                            //Either hide the actor index or null ref check
+                            dialogueUI.ChangeDialogueBox(diag.isActor, diagActors[diag.actorIndex]);
+                            dialogueUI.ChangeText(diag.text);
+                            if (dialogueUI.isTypingText)
+                            {
+                                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) && dialogueUI.TextCanContinue());
+                                yield return null;
+                            }
                             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) && dialogueUI.TextCanContinue());
-                            yield return null;
-                        }
-                        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) && dialogueUI.TextCanContinue());
 
 
-                        //yield return null;
-                        //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) && dialogueUI.TextCanContinue());
+                            //yield return null;
+                            //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) && dialogueUI.TextCanContinue());
 
-                        break;
-                    case DIALOGUEEVENT.IMAGE:
-                        break;
-                    case DIALOGUEEVENT.CG:
-                        break;
-                    case DIALOGUEEVENT.BATTLE:
-                        break;
-                    case DIALOGUEEVENT.CHOICE:
-                        if (!diag.isActor)
-                        {
-                            dialogueUI.ChangeDialogueBox(dialogueUI.narration);
-                        }
-                        else
-                        {
-                            dialogueUI.ChangeDialogueBox(dialogueUI.left);
-                        }
-                        dialogueUI.ChangeText(diag.text);
-
-                        yield return new WaitUntil(() => dialogueUI.TextCanContinue());
-
-                        break;
-                    default:
-                        break;
+                            break;
+                        case DIALOGUEEVENT.IMAGE:
+                            break;
+                        case DIALOGUEEVENT.CG:
+                            break;
+                        case DIALOGUEEVENT.BATTLE:
+                            break;
+                        case DIALOGUEEVENT.CHOICE:
+                            currentChoices = diag.branch;
+                            break;
+                        default:
+                            break;
+                    }
                 }
-                //if (diag.diagEvent == DIALOGUEEVENT.TEXT)
-                //{
-                //    if (!diag.isActor)
-                //    {
-                //        dialogueUI.ChangeDialogueBox(dialogueUI.narration);
-                //    }
-                //    else
-                //    {
-                //        dialogueUI.ChangeDialogueBox(dialogueUI.left);
-                //    }
 
-                //    dialogueUI.ChangeText(diag.text);
-                //    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-                //}
+
 
                 yield return null;
             }
+
+            if(currentChoices)
+            {
+                choiceManager.AddBranches(currentChoices);
+                currentChoices = null;
+
+            }
+            Debug.Log("End of Dialogue");
         }
 
 

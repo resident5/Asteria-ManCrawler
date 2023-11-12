@@ -11,7 +11,7 @@ public class DialogueChoiceManager : MonoBehaviour
 
     public bool selectedText = false;
 
-    public void AddChoices(List<Dialogue> selectChoices)
+    public void AddChoices(List<DialogueObject> selectChoices)
     {
         ClearButtonChoices();
         foreach (var choice in selectChoices)
@@ -19,6 +19,19 @@ public class DialogueChoiceManager : MonoBehaviour
             GameObject choiceObj = Instantiate(choicePrefab);
             Button choiceButton = choiceObj.GetComponent<Button>();
             choiceButton.onClick.AddListener(() => choice.SetText());
+        }
+    }
+
+    public void AddBranches(DialogueBranchObject branch)
+    {
+        gameObject.SetActive(true);
+        foreach(var diag in branch.dialogues)
+        {
+            GameObject choiceObj = Instantiate(choicePrefab, gameObject.transform);
+            Button choiceButton = choiceObj.GetComponent<Button>();
+            DialogueChoice choser = choiceObj.GetComponent<DialogueChoice>();
+            choser.choiceObject = diag;
+            choiceButton.onClick.AddListener(() => gameObject.SetActive(false));
         }
     }
 

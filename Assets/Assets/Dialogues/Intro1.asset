@@ -10,249 +10,359 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf783117b5250de49ab5dd520e7729b3, type: 3}
-  m_Name: Intro
+  m_Name: Intro1
   m_EditorClassIdentifier: 
   dialogueList:
   - idLabel: Intro_0
-    diagEvent: 0
-    choices:
-    - {fileID: 11400000, guid: 7c9a49a9db2ad4647a6bfc4f75ef6fe2, type: 2}
-    - {fileID: 11400000, guid: 6bec80247f7839e4290bb6bb7cf01213, type: 2}
+    diagEvents: 00000000
+    choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: All it takes is one mistake. Just one mistake and everything changes.
   - idLabel: Intro_1
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 1
     text: It could be forgeting something in moments notice, a small miscalculation
       or even just ignoring the faintest detail
   - idLabel: Intro_2
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: And before you know it, it costs you something dearly. You won't know what
       it is until it happens.
   - idLabel: Intro_3
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: Till all five of your senses, and every cell in your system flare up in
       an instant of regret
   - idLabel: Intro_4
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: And as a collective, for only a fraction of a second all unify one solid
       voice in your head
   - idLabel: Intro_5
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: '"This is my fault..."'
   - idLabel: Intro_6
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: Your first words seared into your mind as you wake up with a burning headache
   - idLabel: Intro_7
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: To your disappointment, you remember every detail vividly, as if it had
       happened yesterday.
   - idLabel: Intro_8
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: The throbbing in your skull, a reminder of the blunt object that claimed
       your consciousness but not your life
   - idLabel: Intro_9
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: Your ass, the source of your current predicament, throbbing and leaking
       man fluids
   - idLabel: Intro_10
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: No amnesia, no bodily possession, not drugged or drunk to blame this on
   - idLabel: Intro_11
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: STO- AHHHHH~~
   - idLabel: Intro_12
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: The cry of passion from one of your battle mates clears your fractured
       thoughts and finally you act
   - idLabel: Intro_13
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: ... is what you would do if your legs woke up with you
   - idLabel: Intro_14
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: Ahhh ahhh nnngh
   - idLabel: Intro_15
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: You survey the area for the source of the sound only to finally realize
       where you are
   - idLabel: Intro_16
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: Surrounding you are layers of bedsheets and mountains of cloth each somehow
       stained with your previous lover's bodily fluids
   - idLabel: Intro_17
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: ...Thankfully there's no sign of him anywhere. This will make fixing everything
       a lot easier you hope.
   - idLabel: Intro_18
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: AHHH
   - idLabel: Intro_19
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: SHUT THE FUCK UP WHORE!
   - idLabel: Intro_20
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: A loud slap echos through the corridor to match the booming sound of the
       other's voice.
   - idLabel: Intro_21
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: 'Please I''m sorry we won''t MMMMMPH '
   - idLabel: Intro_22
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: The 'Whore' in question was silenced quickly possibly with a gag.
   - idLabel: Intro_23
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: All these slaves...
   - idLabel: Intro_24
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: MMPH
   - idLabel: Intro_25
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: FOR
   - idLabel: Intro_26
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: MMMPPPHH
   - idLabel: Intro_27
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: ME
   - idLabel: Intro_28
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: NNNNGM MMMPPH
   - idLabel: Intro_29
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: You climb pass the covers of the bed and take in your surroundings.
   - idLabel: Intro_30
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: You are in a moderately  lit marble coated room furnished with gold at
       every angle.
   - idLabel: Intro_31
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: Had you any amnesia you'd assume this was a castle or a royal bedroom and
       not the prison cell.
   - idLabel: Intro_32
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: You had read about this. An new strategy employed by Orc's to illicit stockholm
       syndrome in their prisoners.
   - idLabel: Intro_33
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: Give them the illusion of an exotic lifestyle, free sex, and a surplus
       of food so they will never leave.
   - idLabel: Intro_34
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: After all why would anyone want to escape when the world outside is so
       much scarier than here.
   - idLabel: Intro_35
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: But this won't work on you or your group.
   - idLabel: Intro_36
-    diagEvent: 0
+    diagEvents: 00000000
     choices: []
+    branch: {fileID: 0}
+    variables: 
     seenText: 0
     isActor: 0
+    actorIndex: 0
     text: The only question is how will you get out of here?
   actors:
-  - {fileID: 11400000, guid: 654bccbb9f5895643ba1460a8c491942, type: 2}
+  - {fileID: 11400000, guid: 07ab167a10eee7c4b9e344af8383b647, type: 2}
+  nextDialogue: {fileID: 0}

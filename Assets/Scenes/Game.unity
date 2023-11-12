@@ -741,7 +741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDialogue: {fileID: 11400000, guid: ef3071d2d25f48c4f8fc2b236cb68475, type: 2}
   dialogueUI: {fileID: 237727271}
-  choiceManager: {fileID: 0}
+  choiceManager: {fileID: 1150441619}
+  variables: 
+  currentChoices: {fileID: 0}
 --- !u!1 &1150441615
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1150441616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -779,7 +781,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 110.182}
-  m_SizeDelta: {x: 1656.471, y: 0}
+  m_SizeDelta: {x: 1656.471, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150441617
 MonoBehaviour:
@@ -1313,7 +1315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6512486762100965006, guid: df84ed37862d1d647a10d237f7145b50, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6512486762100965007, guid: df84ed37862d1d647a10d237f7145b50, type: 3}
       propertyPath: m_Pivot.x

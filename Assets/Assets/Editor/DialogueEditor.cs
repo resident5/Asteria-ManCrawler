@@ -2,24 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditorInternal;
 
 [System.Serializable]
-[CustomEditor(typeof(Dialogue))]
+[CanEditMultipleObjects]
+[CustomEditor(typeof(DialogueObject))]
 public class DialogueEditor : Editor
 {
     public string editorText;
-    SerializedProperty property;
+    SerializedProperty propertyList;
+    SerializedProperty propertyActor;
+    //public ReorderableList reordablelist;
+
 
     public DialogueManager.DIALOGUEEVENT diagEvent;
 
-    public Dialogue dialogue;
+    public DialogueObject dialogue;
     public int tabbingIndex = 0;
 
     public bool foldoutSetting = false;
 
     private void OnEnable()
     {
-        property = serializedObject.FindProperty("dialogueList");
+        propertyList = serializedObject.FindProperty("dialogueList");
+        propertyActor = serializedObject.FindProperty("actors");
+        //reordablelist = new ReorderableList(propertyList.serializedObject, propertyList, true, true, true, true);
+        //reordablelist.drawElementCallback = DrawElement;
     }
 
     public override void OnInspectorGUI()
@@ -27,87 +35,101 @@ public class DialogueEditor : Editor
         base.OnInspectorGUI();
         serializedObject.Update();
 
-        dialogue = target as Dialogue;
+        //DialogueEditorList.Show(propertyList, true);
+        dialogue = target as DialogueObject;
         foldoutSetting = EditorGUILayout.Foldout(foldoutSetting, "Text List");
 
-        if(foldoutSetting)
+        if (foldoutSetting)
         {
             DialogueField();
         }
 
-        if (GUILayout.Button("Fix name order"))
+        if (GUILayout.Button("Fix name order + actor bug"))
         {
             dialogue.SetText();
         }
 
         EditorGUILayout.BeginHorizontal();
 
-        if (GUILayout.Button("Narration"))
-        {
-            AddNarrationDialogue();
-        }
+        AddNarrationDialogue();
+        AddActorDialogue();
+        SetAllDiagEventsToText();
 
-        if (GUILayout.Button("Actor"))
-        {
-            AddActorDialogue();
-        }
-        
+        //if (GUI.changed)
+        //{
+        //    Debug.Log("Change detected");
+        //    dialogue.SetText();
+
+        //}
         EditorGUILayout.EndHorizontal();
-
-
-        for (int i = 0; i < dialogue.dialogueList.Count; i++)
-        {
-            EditorGUILayout.Space(20);
-
-            Event e = Event.current;
-            if(e.keyCode == KeyCode.Tab && e.type == EventType.KeyDown)
-            {
-                if(e.shift)
-                {
-                    tabbingIndex = (tabbingIndex - 1 + dialogue.dialogueList.Count) % dialogue.dialogueList.Count;
-                }
-                else
-                {
-                    tabbingIndex = (tabbingIndex + 1) % dialogue.dialogueList.Count;
-                    Debug.Log("TABB!" + tabbingIndex);
-                }
-            }
-        }
-
-
+        DialogueEditorList.Show(propertyActor);
         serializedObject.ApplyModifiedProperties();
     }
 
+
+
     public void DialogueField()
     {
-        for(int i = 0; i < dialogue.dialogueList.Count; i++)
+        for (int i = 0; i < dialogue.dialogueList.Count; i++)
         {
             EditorGUILayout.BeginHorizontal();
             GUI.SetNextControlName("Text_" + tabbingIndex);
             dialogue.dialogueList[i].text = GUILayout.TextArea(dialogue.dialogueList[i].text);
             EditorGUILayout.Space(20);
             EditorGUILayout.EndHorizontal();
-
         }
 
     }
 
     public void AddNarrationDialogue()
     {
-        tabbingIndex = dialogue.dialogueList.Count;
-        GUI.SetNextControlName("Text_" + tabbingIndex);
-        dialogue.dialogueList.Add(new DialogueElement(false));
-        GUI.FocusControl("TextArea" + tabbingIndex);
-        Event.current.Use();
+        if (GUILayout.Button("Narration"))
+        {
+            tabbingIndex = dialogue.dialogueList.Count;
+            GUI.SetNextControlName("Text_" + tabbingIndex);
+            dialogue.dialogueList.Add(new DialogueElement(false));
+            GUI.FocusControl("TextArea" + tabbingIndex);
+            Event.current.Use();
+        }
+    }
+
+    public void SetAllDiagEventsToText()
+    {
+        if (GUILayout.Button("DiagEventToText"))
+        {
+            foreach (var diag in dialogue.dialogueList)
+            {
+                foreach (var dEvent in diag.diagEvents)
+                {
+                    if (diag.diagEvents.Contains(DialogueManager.DIALOGUEEVENT.TEXT))
+                    {
+                        return;
+                    }
+                }
+                diag.diagEvents.Add(DialogueManager.DIALOGUEEVENT.TEXT);
+
+            }
+        }
     }
 
     public void AddActorDialogue()
     {
-        tabbingIndex = dialogue.dialogueList.Count;
-        GUI.SetNextControlName("Text_" + tabbingIndex);
-        dialogue.dialogueList.Add(new DialogueElement(true));
-        GUI.FocusControl("TextArea" + tabbingIndex);
-        Event.current.Use();
+        if (GUILayout.Button("Actor"))
+        {
+            tabbingIndex = dialogue.dialogueList.Count;
+            GUI.SetNextControlName("Text_" + tabbingIndex);
+            dialogue.dialogueList.Add(new DialogueElement(true));
+            GUI.FocusControl("TextArea" + tabbingIndex);
+            Event.current.Use();
+        }
 
     }
+
+    //public void DrawElement(Rect rect, int index, bool isActive, bool isFocused)
+    //{
+    //    var element = reordablelist.serializedProperty.GetArrayElementAtIndex(index);
+    //    rect.y += 2;
+
+    //    EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight), element, dialogue);
+    //}
 }
