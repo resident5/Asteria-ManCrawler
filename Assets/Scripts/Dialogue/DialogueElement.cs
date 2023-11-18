@@ -10,6 +10,7 @@ public class DialogueElement
     public string idLabel;
 
     public List<DialogueManager.DIALOGUEEVENT> diagEvents = new List<DialogueManager.DIALOGUEEVENT>();
+    public string[] empahsisWords;
 
     public DialogueBranchObject branch;
     public List<int> variables;
@@ -19,6 +20,15 @@ public class DialogueElement
     public int actorIndex = 0;
 
     public string text;
+
+    public DialogueElement()
+    {
+        text = "";
+        seenText = false;
+        variables = new List<int>();
+        diagEvents.Add(DialogueManager.DIALOGUEEVENT.TEXT);
+        
+    }
 
     public DialogueElement(bool actor)
     {

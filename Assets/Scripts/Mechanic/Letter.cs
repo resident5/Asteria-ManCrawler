@@ -6,7 +6,7 @@ using TMPro;
 public class Letter : MonoBehaviour
 {
     private char letter;
-    private TextMeshProUGUI letterText;
+    public TextMeshProUGUI letterText;
 
     private void Awake()
     {

@@ -6,8 +6,8 @@ using UnityEngine;
 public class DialogueActorObject : ScriptableObject
 {
     public string actorName;
-    public Sprite actorFaceImage;
     public Sprite actorTextBoxImage;
+    public Sprite actorFullBodyImage;
     public Font actorFont;
 
 

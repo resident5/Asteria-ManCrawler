@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
 
@@ -8,12 +9,15 @@ public class DialogueUI : MonoBehaviour
 {
     public DialogueUIBox left;
     public DialogueUIBox narration;
-
     public DialogueUIBox activeBox;
+
+    public DialogueCharacterManager characterManager;
 
     public IEnumerator TextCouroutine;
     public bool isTypingText;
     public string currentText;
+
+    public TMP_InputField emphasisInputField;
 
     private void Start()
     {
@@ -24,30 +28,30 @@ public class DialogueUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SkipOrContinueText();
-            //if (TextCouroutine != null)
-            //{
-            //    isRunning = false;
-            //    StopCoroutine(TextCouroutine);
-            //}
+        
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    emphasisInputField.Select();
+        //}
+        //if (emphasisInputField.isFocused && !string.IsNullOrEmpty(emphasisInputField.text))
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Return))
+        //    {
+        //        SubmitEmphasis();
+        //    }
+        //}
+    }
 
-            //if (TextCouroutine != null && !isRunning)
-            //{
-            //    StopCoroutine(TextCouroutine);
-            //}
-            //else if (isRunning)
-            //{
-            //    StopCoroutine(TextCouroutine);
-            //    isRunning = false;
-            //}
-        }
+    public DialogueObject SubmitEmphasis(string word)
+    {
+        //var emphasisDialogue = (DialogueObject)AssetDatabase.LoadAssetAtPath("Assets/Dialogues/Dialogue Emphasis/" + word + ".asset", typeof(DialogueObject));
+        //Debug.Log("Assets/Dialogues/Dialogue Emphasis/" + word + ".asset");
+        //Debug.Log(emphasisDialogue);
+        var emphasisDialogue = Resources.Load<DialogueObject>(word);
 
-        if(activeBox.text.text == currentText)
-        {
-            isTypingText = false;
-        }
+        Debug.Log("is null?" + emphasisDialogue);
+
+        return emphasisDialogue;
     }
 
     public void ChangeText(string text)
@@ -70,15 +74,16 @@ public class DialogueUI : MonoBehaviour
             yield return null;
             yield return null;
         }
+        isTypingText = false;
     }
 
     public bool SkipOrContinueText()
     {
         if (activeBox.text.text != currentText)
         {
+            isTypingText = false;
             StopCoroutine(TextCouroutine);
             activeBox.text.text = currentText;
-            isTypingText = false;
             return false;
         }
         else
@@ -86,15 +91,6 @@ public class DialogueUI : MonoBehaviour
             StopCoroutine(TextCouroutine);
             return true;
         }
-    }
-
-    public bool TextCanContinue()
-    {
-        if (activeBox.text.text == currentText)
-            return true;
-        else
-            return false;
-
     }
 
     public void ChangeDialogueBox(bool isActorBox, DialogueActorObject actor)
@@ -105,8 +101,8 @@ public class DialogueUI : MonoBehaviour
         if (isActorBox)
         {
             activeBox = left;
-            activeBox.name = actor.name;
-            activeBox.image.sprite = actor.actorFaceImage;
+            activeBox.namePlateText.text = actor.name;
+            activeBox.image.sprite = actor.actorTextBoxImage;
         }
         else
         {

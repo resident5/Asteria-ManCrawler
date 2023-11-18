@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.ObjectModel;
+using UnityEditor;
 
 
 [CreateAssetMenu(fileName = "Dialogue", menuName = "Create Dialogue", order = 1)]

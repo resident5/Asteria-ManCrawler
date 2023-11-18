@@ -15,14 +15,18 @@ MonoBehaviour:
   dialogueList:
   - idLabel: Test_0
     diagEvents: 00000000
+    empahsisWords:
+    - testing
     branch: {fileID: 0}
     variables: 
     seenText: 0
     isActor: 1
     actorIndex: 0
-    text: Testing Player
+    text: Testing Player Testing reallllllllly long ass speach... I mean REALLY LONG
+      ASS SPEECH
   - idLabel: Test_1
     diagEvents: 00000000
+    empahsisWords: []
     branch: {fileID: 0}
     variables: 
     seenText: 0
@@ -31,6 +35,7 @@ MonoBehaviour:
     text: Testing Narration
   - idLabel: Test_2
     diagEvents: 00000000
+    empahsisWords: []
     branch: {fileID: 0}
     variables: 
     seenText: 0
@@ -39,6 +44,7 @@ MonoBehaviour:
     text: Testing Narration again!
   - idLabel: Test_3
     diagEvents: 0000000004000000
+    empahsisWords: []
     branch: {fileID: 11400000, guid: 5740e0e1d4938d8478ff0f379d962de9, type: 2}
     variables: 
     seenText: 0

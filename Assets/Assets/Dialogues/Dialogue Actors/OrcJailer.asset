@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: OrcJailer
   m_EditorClassIdentifier: 
   actorName: Orc Jailer
-  actorFaceImage: {fileID: 21300000, guid: 90036a223142da34aafd245ac806ac97, type: 3}
   actorTextBoxImage: {fileID: 21300000, guid: 90036a223142da34aafd245ac806ac97, type: 3}
+  actorFullBodyImage: {fileID: 21300000, guid: 585c0e3e9bfe7934cb6e81afea8e372a, type: 3}
   actorFont: {fileID: 0}

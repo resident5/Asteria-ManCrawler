@@ -22,9 +22,6 @@ public class DialogueElementEditor : Editor
     {
         serializedObject.Update();
         EditorGUILayout.PropertyField(property, true);
-
-        
-
         serializedObject.ApplyModifiedProperties();
 
     }
