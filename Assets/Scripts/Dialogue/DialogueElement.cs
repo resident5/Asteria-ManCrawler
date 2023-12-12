@@ -19,6 +19,8 @@ public class DialogueElement
     public bool isActor;
     public int actorIndex = 0;
 
+    public Sprite cgImage;
+
     public string text;
 
     public DialogueElement()
@@ -35,6 +37,16 @@ public class DialogueElement
         text = "";
         seenText = false;
         isActor = actor;
+        variables = new List<int>();
+        diagEvents.Add(DialogueManager.DIALOGUEEVENT.TEXT);
+    }
+
+    public DialogueElement(bool actor, int num)
+    {
+        text = "";
+        seenText = false;
+        isActor = actor;
+        actorIndex = num;
         variables = new List<int>();
         diagEvents.Add(DialogueManager.DIALOGUEEVENT.TEXT);
     }

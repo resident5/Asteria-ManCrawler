@@ -5,17 +5,7 @@ public class AudioManager : MonoBehaviour
 {
     #region Singleton
     private static AudioManager instance;
-    public static AudioManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<AudioManager>();
-            }
-            return instance;
-        }
-    }
+    public static AudioManager Instance { get { return instance; } }
     #endregion
 
     [Header("Audio Source")]
@@ -26,16 +16,32 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Clip")]
     public AudioClip[] clickSounds;
     public AudioClip menuButton;
-    
+    public AudioClip wordPop;
+
     public void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void PlayRandomSound()
     {
         int randomSound = Random.Range(0, clickSounds.Length);
         sfxSource.clip = clickSounds[randomSound];
+        sfxSource.Play();
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        sfxSource.clip = clip;
         sfxSource.Play();
     }
 }

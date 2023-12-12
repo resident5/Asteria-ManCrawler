@@ -5,15 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
+    private static GameManager instance;
+    public static GameManager Instance { get { return instance; } }
+
+    #endregion
 
     public DialogueManager dialogueManager;
-
+    public LevelUIController uIController;
 
     #region Word Player
     public WordHolder wordHolder;
     public Word selectedWord;
     int letterIndex;
-
+    public Timer timer;
+    public Countdown countdown;
     #endregion
 
     public enum GameState
@@ -26,20 +32,6 @@ public class GameManager : MonoBehaviour
     }
     public GameState gameState;
 
-    #region Singleton
-    private static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
-            return instance;
-        }
-    }
-    #endregion
 
     [Space]
     [Space]
@@ -62,7 +54,9 @@ public class GameManager : MonoBehaviour
     int struggleSuccess;
     int struggleFailed;
 
+    public StatusEffectHandler effectHandler;
 
+    public bool paused = false;
 
     private static readonly KeyCode[] SUPPORTED_KEYS = new KeyCode[]
     {
@@ -76,8 +70,18 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if(instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         player = GetComponent<Player>();
+        effectHandler = GameObject.Find("Status Effect UI").GetComponent<StatusEffectHandler>();
+        uIController = GameObject.Find("Canvas").GetComponent<LevelUIController>();
         dialogueManager = GetComponent<DialogueManager>();
     }
 
@@ -92,19 +96,42 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name.Contains("Level") && gameState == GameState.MENU)
+
+        //Debug.Log(System.Enum.GetName(typeof(Player.PlayerState), player.pState));
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("In Scene");
+            paused = !paused;
+            dialogueManager.PauseGame(paused);
         }
 
-        WordleAttack();
+        if ((player.currentHealth <= 0 || player.currentLust >= player.MaxLust) && gameState != GameState.ENDING)
+        {
+            //Debug.Log("Should only happen once");
+            gameState = GameState.ENDING;
+            GameEnding();
+            dialogueManager.PlayDialogue(boss.healthLostDialogue);
+        }
+
+        if ((boss.currentHealth <= 0 || boss.currentLust >= boss.MaxLust) && gameState != GameState.ENDING)
+        {
+            //Debug.Log("Should only happen once");
+            gameState = GameState.ENDING;
+            GameEnding();
+            dialogueManager.PlayDialogue(boss.lustLostDialogue);
+        }
+
+        if (gameState == GameState.WORDSMITHING)
+        {
+            WordleAttack();
+        }
     }
 
     public void WordleAttack()
     {
         foreach (KeyCode vKey in SUPPORTED_KEYS)
         {
-            if (gameState == GameState.WORDSMITHING && selectedWord != null)
+            if (selectedWord != null)
             {
                 if (Input.GetKeyDown(vKey) && letterIndex < selectedWord.word.Length)
                 {
@@ -124,18 +151,23 @@ public class GameManager : MonoBehaviour
 
                     if (letterIndex >= selectedWord.word.Length)
                     {
-                        boss.TakeDamage(20);
+                        boss.TakeDamage(boss.damage);
+                        AudioManager.Instance.PlaySound(AudioManager.Instance.wordPop);
                         StopAllCoroutines();
                         Destroy(selectedWord.gameObject);
                         StartCoroutine(Attack());
-                        Debug.Log("Word has been finished");
+                        //Debug.Log("Word has been finished");
                         if (player.pState == Player.PlayerState.GRABBED)
                         {
                             struggleSuccess += 1;
 
-                            if (struggleSuccess > boss.grabStrength)
+                            if (struggleSuccess >= boss.grabStrength)
                             {
+                                struggleSuccess = 0;
+                                struggleFailed = 0;
                                 player.pState = Player.PlayerState.DEFAULT;
+                                effectHandler.TurnOffEffect("chained");
+                                boss.Grab(false);
                             }
                         }
                     }
@@ -149,13 +181,14 @@ public class GameManager : MonoBehaviour
     {
         if (!hasCounted)
         {
-            Debug.Log("COUNTING");
-            yield return new WaitForSeconds(3f);
+            countdown.CountDownStart(3f);
+            yield return new WaitUntil(() => countdown.CountDownEnd());
+            wordHolder.gameObject.SetActive(true);
             hasCounted = true;
             gameState = GameState.WORDSMITHING;
         }
 
-        while (IsPlayerAlive() || IsBossAlive())
+        while (gameState != GameState.ENDING)
         {
             if (player.pState == Player.PlayerState.DEFAULT)
             {
@@ -181,14 +214,18 @@ public class GameManager : MonoBehaviour
         nextWord.word = boss.Attack(boss.attacks);
         if (nextWord.word == "grapple")
         {
+            nextWord.word = boss.Attack(boss.grabAttacks);
             player.pState = Player.PlayerState.GRABBED;
+            effectHandler.TurnOnEffect("chained");
             boss.Grab(true);
-            StopAllCoroutines();
+            boss.Fuck(false);
         }
         nextWord.CreateLetters();
+        timer.TimerStart(4f);
+        yield return new WaitUntil(() => timer.TimerEnded());
 
-        yield return new WaitForSeconds(4f);
-        player.TakeDamage(true, 20);
+        //yield return new WaitForSeconds(4f);
+        player.TakeDamage(true, 5);
         Destroy(wordObject);
 
     }
@@ -201,14 +238,21 @@ public class GameManager : MonoBehaviour
         selectedWord = nextWord;
         nextWord.word = boss.Attack(boss.grabAttacks);
         nextWord.CreateLetters();
+        timer.TimerStart(3f);
 
-        yield return new WaitForSeconds(3f);
-        player.TakeDamage(true, 20);
-        struggleFailed += 1;
+        yield return new WaitUntil(() => timer.TimerEnded());
+
+        player.TakeDamage(false, 10);
         Destroy(wordObject);
+
+        struggleFailed += 1;
         if (struggleFailed >= boss.grabStrength)
         {
+            struggleSuccess = 0;
+            struggleFailed = 0;
             player.pState = Player.PlayerState.FUCKED;
+            boss.Grab(false);
+            boss.Fuck(true);
         }
     }
 
@@ -218,9 +262,25 @@ public class GameManager : MonoBehaviour
         var wordObject = Instantiate(wordHolder.wordPrefab, wordHolder.transform);
         Word nextWord = wordObject.GetComponent<Word>();
         selectedWord = nextWord;
-        nextWord.word = boss.Attack(boss.grabAttacks);
+        nextWord.word = boss.Attack(boss.fuckAttacks);
         nextWord.CreateLetters();
-        yield return new WaitForSeconds(3f);
+        timer.TimerStart(3f);
+
+        yield return new WaitUntil(() => timer.TimerEnded());
+        Destroy(wordObject);
+
+    }
+
+    public void GameEnding()
+    {
+        StopAllCoroutines();
+        timer.gameObject.SetActive(false);
+        uIController.playerUI.gameObject.SetActive(false);
+        uIController.enemyUI.gameObject.SetActive(false);
+        effectHandler.TurnOffEffect("chained");
+        boss.Grab(false);
+        boss.Fuck(false);
+
     }
 
     bool IsPlayerAlive()

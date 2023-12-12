@@ -9,6 +9,8 @@ public class LevelUIController : MonoBehaviour
     public StatUI enemyUI;
 
     public Image fadeBG;
+
+
     // Start is called before the first frame update
     void Start()
     {

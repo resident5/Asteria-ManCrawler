@@ -13,6 +13,9 @@ public class Player : Character
 
     public PlayerState pState;
 
+    public int damage;
+    public int lustdamage;
+
     private void Start()
     {
         pState = PlayerState.DEFAULT;
@@ -31,7 +34,7 @@ public class Player : Character
         }
     }
 
-    public void TakeDamage(bool health, int damage)
+    public void TakeDamage(bool health, float damage)
     {
         if (health)
         {

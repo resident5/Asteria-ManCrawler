@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   actorName: Ayer
-  actorFaceImage: {fileID: 21300000, guid: 4e2f640e9cdb3e34ebd62d5d92052954, type: 3}
-  actorTextBoxImage: {fileID: 21300000, guid: 4e2f640e9cdb3e34ebd62d5d92052954, type: 3}
+  actorTextBoxImage: {fileID: 21300000, guid: 0b3ea70abfce7414786bb195aff4dc35, type: 3}
+  actorFullBodyImage: {fileID: 0}
   actorFont: {fileID: 0}

@@ -11,53 +11,31 @@ public class DialogueUI : MonoBehaviour
     public DialogueUIBox narration;
     public DialogueUIBox activeBox;
 
+    public DialogueBackgroundManager backgroundManager;
     public DialogueCharacterManager characterManager;
+
 
     public IEnumerator TextCouroutine;
     public bool isTypingText;
     public string currentText;
 
-    public TMP_InputField emphasisInputField;
+    //public TMP_InputField emphasisInputField;
 
     private void Start()
     {
         activeBox = narration;
-        activeBox.active = true;
         isTypingText = false;
     }
 
     private void Update()
     {
-        
-        //if (Input.GetKeyDown(KeyCode.Tab))
-        //{
-        //    emphasisInputField.Select();
-        //}
-        //if (emphasisInputField.isFocused && !string.IsNullOrEmpty(emphasisInputField.text))
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Return))
-        //    {
-        //        SubmitEmphasis();
-        //    }
-        //}
-    }
-
-    public DialogueObject SubmitEmphasis(string word)
-    {
-        //var emphasisDialogue = (DialogueObject)AssetDatabase.LoadAssetAtPath("Assets/Dialogues/Dialogue Emphasis/" + word + ".asset", typeof(DialogueObject));
-        //Debug.Log("Assets/Dialogues/Dialogue Emphasis/" + word + ".asset");
-        //Debug.Log(emphasisDialogue);
-        var emphasisDialogue = Resources.Load<DialogueObject>(word);
-
-        Debug.Log("is null?" + emphasisDialogue);
-
-        return emphasisDialogue;
     }
 
     public void ChangeText(string text)
     {
         if (activeBox != null)
         {
+            StopAllCoroutines();
             StartCoroutine(TextCouroutine = TypeOutText(text));
             currentText = text;
         }
@@ -110,5 +88,16 @@ public class DialogueUI : MonoBehaviour
         }
         activeBox.gameObject.SetActive(true);
         activeBox.active = true;
+    }
+
+    public void ShowBackground(Sprite sprite)
+    {
+        backgroundManager.cgBackground.cgImage.sprite = sprite;
+        backgroundManager.canvasG.alpha = 1;
+    }
+
+    public void SwapBackground(Sprite sprite)
+    {
+        backgroundManager.cgBackground.cgImage.sprite = sprite;
     }
 }

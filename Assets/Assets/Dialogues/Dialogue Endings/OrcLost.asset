@@ -1,0 +1,808 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf783117b5250de49ab5dd520e7729b3, type: 3}
+  m_Name: OrcLost
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idLabel: OrcLost_0
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: His last blow causes you to stumble back against the wall
+  - idLabel: OrcLost_1
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: Tch Weak
+  - idLabel: OrcLost_2
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: <i>He's too strong.</i>
+  - idLabel: OrcLost_3
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: <i>I have to get out of here.</i>
+  - idLabel: OrcLost_4
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: I will admit that power you showed was interesting...
+  - idLabel: OrcLost_5
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: He walks up to you and grabs you by one of your ears forcing out a groan
+      from you
+  - idLabel: OrcLost_6
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: ...but I don't think its even worth fucking you if you gave up that easily
+  - idLabel: OrcLost_7
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: Orc sons HAVE to be BIG and STRONG so breeding you would be a waste
+  - idLabel: OrcLost_8
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: Hmmm what to do~ what to do~
+  - idLabel: OrcLost_9
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: While he's distracted you attempt to flee only for him to grab your tail
+  - idLabel: OrcLost_10
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Using you like a boomerang he throws as if you weighed nothing into a floating
+      web of chains that wrap around your form.
+  - idLabel: OrcLost_11
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: Uh uh. You lost! And to the victor goes the spoils
+  - idLabel: OrcLost_12
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: You won't get away with this someone will come find me
+  - idLabel: OrcLost_13
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: 'Despite your protests, you half-heartedly hope help doesn''t come. '
+  - idLabel: OrcLost_14
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: The thought of being used by your new Orc masters lights a fire in your
+      slit making your cock jump inside
+  - idLabel: OrcLost_15
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: However, whilst stuck in your daydream the Orc before you has come to a
+      conclusion
+  - idLabel: OrcLost_16
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: Actually I think I have the perfect job for a little fleshlight such as
+      yourself
+  - idLabel: OrcLost_17
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Fl-fleshlight!? Wait a sec-
+  - idLabel: OrcLost_18
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: Nope
+  - idLabel: OrcLost_19
+    diagEvents: 0000000002000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 21300000, guid: b32e86df217c9f0459807a7e077c76f1, type: 3}
+    text: And with that he sends you to sleep with one solid punch to the noggin
+  - idLabel: OrcLost_20
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Some time later...
+  - idLabel: OrcLost_21
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: You slowly rouse from sleep bound, gagged and blindfolded in a box of some
+      sort.
+  - idLabel: OrcLost_22
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Before you can even nudge yourself you hear footsteps close to you
+  - idLabel: OrcLost_23
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: Here we are!
+  - idLabel: OrcLost_24
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Is that a present?
+  - idLabel: OrcLost_25
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: YEAH OPEN IT
+  - idLabel: OrcLost_26
+    diagEvents: 0000000002000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 21300000, guid: 025c1d7ad0d27a94484df2980cfa5150, type: 3}
+    text: Suddenly the box around you starts shaking and the sounds of paper tearing
+      fills your ears
+  - idLabel: OrcLost_27
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: To commemorate your promotion to Orc Cheiftain I'm giving you you're own
+      fleshlight
+  - idLabel: OrcLost_28
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: <i>ORC CHEFTAIN?</i>
+  - idLabel: OrcLost_29
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Who is this? Is this another one of those raiders?
+  - idLabel: OrcLost_30
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: Yeah. I figured you'd want a stress relief after getting promoted
+  - idLabel: OrcLost_31
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Why is he not with the other idiots to be bred already?
+  - idLabel: OrcLost_32
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: Cause I wanted to give you a present bro
+  - idLabel: OrcLost_33
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: And seeing how he's very weak I thought you'd want to practice breaking
+      someone in again
+  - idLabel: OrcLost_34
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: <i>Fuck. If he's the new Chieftain that must mean he's really strong</i>
+  - idLabel: OrcLost_35
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: <i>Damn it. I have to escape</i>
+  - idLabel: OrcLost_36
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: You attempt to struggle out of your binds much to the two Orcs displeasure
+  - idLabel: OrcLost_37
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: An untrained fleshlight is my gift?
+  - idLabel: OrcLost_38
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: YEAH! Better practice those breeding skills you got
+  - idLabel: OrcLost_39
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: When's the last time you broke a someone in?
+  - idLabel: OrcLost_40
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: When I was the Chieftain's Right Hand I was busy with capturing and...
+      paper work so I haven't-
+  - idLabel: OrcLost_41
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: Exactly!
+  - idLabel: OrcLost_42
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: Now with your freetime there's no excuse
+  - idLabel: OrcLost_43
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: And maybe... I could be the new Right Hand?
+  - idLabel: OrcLost_44
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: ...Thank you for the gift Horrowick you can leave now
+  - idLabel: OrcLost_45
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 2
+    cgImage: {fileID: 0}
+    text: WHAT THE- HEY!
+  - idLabel: OrcLost_46
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: And with that your captor ushered out of the room by his new boss with
+      haste
+  - idLabel: OrcLost_47
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: The Orc you are left with pays no attention to your squirming and drags
+      you out of the box.
+  - idLabel: OrcLost_48
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: His rough treatment makes you feel closer to a piece of furniture than
+      a person
+  - idLabel: OrcLost_49
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Especially when he repositions you on your knees and angles your muzzle
+      upwards through a hole
+  - idLabel: OrcLost_50
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: At this point you are afraid of what he's planning and don't dare to move
+      for fear you could make your situation worse
+  - idLabel: OrcLost_51
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Afterwards, a large force presses down on your muzzle pushing into your
+      face.
+  - idLabel: OrcLost_52
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: <b>LICK</b>
+  - idLabel: OrcLost_53
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Your first command, the first of many no doubt
+  - idLabel: OrcLost_54
+    diagEvents: 0000000002000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 21300000, guid: bd9c7eb2f38033e489b69c291a8977a7, type: 3}
+    text: And with it comes the realization of where you are
+  - idLabel: OrcLost_55
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: You are seated directly underneath the Orc Chieftains chair which has a
+      hole for your to service him after a long hard day
+  - idLabel: OrcLost_56
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Wasting no more time on idle thoughts you plunge you nimble tongue into
+      his hole
+  - idLabel: OrcLost_57
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: The Orc above you fails several skill checks while trying to stifle his
+      gasps and moans through your assault
+  - idLabel: OrcLost_58
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Nggh youuu sloooow down
+  - idLabel: OrcLost_59
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Ahhh
+  - idLabel: OrcLost_60
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Curling your deft tongue inside him, you feel his hole tremble until finally...
+  - idLabel: OrcLost_61
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Aaaaaaa~
+  - idLabel: OrcLost_62
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: he cums.
+  - idLabel: OrcLost_63
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Despite this, you are 100% confident you did a good job when he stands
+      up immediately after
+  - idLabel: OrcLost_64
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 3
+    cgImage: {fileID: 0}
+    text: Damn it. This could get addicting if I let it.
+  - idLabel: OrcLost_65
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 1
+    actorIndex: 1
+    cgImage: {fileID: 0}
+    text: MMPH
+  - idLabel: OrcLost_66
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Without another word he forces the ballgag on your mouth and scoots you
+      under what you assume is his desk
+  - idLabel: OrcLost_67
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Immediately afterwards you feel chains click and snap all around you locking
+      you in place
+  - idLabel: OrcLost_68
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: It seems you helped the new Orc Chieftain attain a new fleshlight and a
+      new hobby
+  - idLabel: OrcLost_69
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: As for yourself, you've abandoned the idea of escaping the moment you learned
+      it was impossible
+  - idLabel: OrcLost_70
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: 'But at least you are safe here in the bottom of the Orc''s Encampment
+      serving your new master '
+  - idLabel: OrcLost_71
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: The role you was born to play
+  - idLabel: OrcLost_72
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: <b>GAME OVER</b>
+  - idLabel: OrcLost_73
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Congrats on completing Boss Crawler Side B!
+  - idLabel: OrcLost_74
+    diagEvents: 00000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: Sadly there are no other endings at this point. Really had a bad game jam
+      when I started
+  - idLabel: OrcLost_75
+    diagEvents: 0000000005000000
+    empahsisWords: []
+    branch: {fileID: 0}
+    variables: 
+    seenText: 1
+    isActor: 0
+    actorIndex: 0
+    cgImage: {fileID: 0}
+    text: I recommend reading the post mortem notes if you want a full explanation
+      of what went wrong during the game jam.
+  actors:
+  - {fileID: 11400000, guid: 07ab167a10eee7c4b9e344af8383b647, type: 2}
+  - {fileID: 11400000, guid: 654bccbb9f5895643ba1460a8c491942, type: 2}
+  - {fileID: 11400000, guid: 2f630c77968c3404fa29eff011fc8c0e, type: 2}
+  - {fileID: 11400000, guid: fab5f849b08869542a6ce758c659b8ce, type: 2}
+  nextDialogue: {fileID: 0}

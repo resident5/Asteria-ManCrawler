@@ -53,9 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
+  uIController: {fileID: 0}
   wordHolder: {fileID: 0}
   selectedWord: {fileID: 0}
-  letterIndex: 0
+  timer: {fileID: 0}
+  countdown: {fileID: 0}
   gameState: 0
   boss: {fileID: 0}
   player: {fileID: 0}
@@ -65,6 +67,8 @@ MonoBehaviour:
   timeDelay: 2.5
   attackWordTimer: 4
   spawnReady: 0
+  effectHandler: {fileID: 0}
+  paused: 0
 --- !u!114 &2505341304538101064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +86,8 @@ MonoBehaviour:
   currentLust: 0
   MaxLust: 100
   pState: 0
+  damage: 0
+  lustdamage: 0
 --- !u!114 &2505341304538101078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +105,8 @@ MonoBehaviour:
   choiceManager: {fileID: 0}
   currentChoices: {fileID: 0}
   emphasisWordList: []
+  restartScreen: {fileID: 0}
+  pauseScreen: {fileID: 0}
 --- !u!114 &2505341304538101065
 MonoBehaviour:
   m_ObjectHideFlags: 0

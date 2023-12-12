@@ -41,6 +41,7 @@ public class DialogueEditor : Editor
 
         if (foldoutSetting)
         {
+            ContextMenuDrawer();
             DialogueField();
         }
 
@@ -72,12 +73,43 @@ public class DialogueEditor : Editor
     {
         for (int i = 0; i < dialogue.dialogueList.Count; i++)
         {
-            EditorGUILayout.BeginHorizontal();
+            EditorGUIUtility.labelWidth = 0.5f;
+            EditorGUILayout.BeginHorizontal("Button");
             GUI.SetNextControlName("Text_" + tabbingIndex);
-            dialogue.dialogueList[i].text = GUILayout.TextArea(dialogue.dialogueList[i].text);
+            dialogue.dialogueList[i].text = GUILayout.TextArea(dialogue.dialogueList[i].text, GUILayout.Width(400));
+            GUILayout.FlexibleSpace();
+            dialogue.dialogueList[i].isActor = EditorGUILayout.Toggle(dialogue.dialogueList[i].isActor);
+            dialogue.dialogueList[i].actorIndex = EditorGUILayout.IntField(dialogue.dialogueList[i].actorIndex);
             EditorGUILayout.Space(20);
             EditorGUILayout.EndHorizontal();
         }
+
+    }
+
+    public void ContextMenuDrawer()
+    {
+        Event e = Event.current;
+        if (e.type == EventType.ContextClick)
+        {
+            for (int i = 0; i < dialogue.dialogueList.Count; i++)
+            {
+                int index = i;
+
+                GenericMenu menu = new GenericMenu();
+                menu.AddItem(new GUIContent("Add Above"), false, AddAbove, index);
+                menu.ShowAsContext();
+                e.Use();
+            }
+        }
+    }
+
+
+    void AddAbove(object usedata)
+    {
+        int index = (int)usedata;
+        Debug.Log("index = " + index);
+        dialogue.dialogueList.Insert(index, new DialogueElement(false));
+
 
     }
 
@@ -114,11 +146,20 @@ public class DialogueEditor : Editor
 
     public void AddActorDialogue()
     {
-        if (GUILayout.Button("Actor"))
+        if (GUILayout.Button("0"))
         {
             tabbingIndex = dialogue.dialogueList.Count;
             GUI.SetNextControlName("Text_" + tabbingIndex);
-            dialogue.dialogueList.Add(new DialogueElement(true));
+            dialogue.dialogueList.Add(new DialogueElement(true, 0));
+            GUI.FocusControl("TextArea" + tabbingIndex);
+            Event.current.Use();
+        }
+
+        if (GUILayout.Button("1"))
+        {
+            tabbingIndex = dialogue.dialogueList.Count;
+            GUI.SetNextControlName("Text_" + tabbingIndex);
+            dialogue.dialogueList.Add(new DialogueElement(true, 1));
             GUI.FocusControl("TextArea" + tabbingIndex);
             Event.current.Use();
         }

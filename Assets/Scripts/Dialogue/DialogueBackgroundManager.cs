@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class DialogueBackgroundManager : MonoBehaviour
 {
-    public DialogueBackground bedroom;
-    public DialogueBackground dungeon;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public DialogueBackground cgBackground;
+    public CanvasGroup canvasG;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        canvasG = GetComponent<CanvasGroup>();
+        canvasG.alpha = 0;
     }
 }

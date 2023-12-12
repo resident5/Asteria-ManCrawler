@@ -10,6 +10,7 @@ public class OrcBoss : Character
 
     public string[] attacks;
     public string[] grabAttacks;
+    public string[] fuckAttacks;
 
     public TMP_FontAsset fontAsset;
     public float fontSize;
@@ -29,6 +30,11 @@ public class OrcBoss : Character
     public AudioClip sexPlap;
     public DialogueObject healthLostDialogue;
     public DialogueObject lustLostDialogue;
+
+    public BossSpeech speech;
+
+    public float lustDamage;
+    public float damage;
 
     private void Awake()
     {
@@ -60,13 +66,18 @@ public class OrcBoss : Character
         animator.SetBool("grab", grab);
     }
 
+    public void Fuck(bool fuck)
+    {
+        animator.SetBool("fuck", fuck);
+    }
+
     public void AnimationTriggerEvent(AnimationTriggerType triggerType)
     {
         if(triggerType == AnimationTriggerType.ENEMYPLAP)
         {
             AudioManager.Instance.sfxSource.clip = sexPlap;
             AudioManager.Instance.sfxSource.Play();
-            GameManager.Instance.player.TakeDamage(false, 1f);
+            GameManager.Instance.player.TakeDamage(false, lustDamage);
             //Play sound efect
             //Deal lust damage to player
         }
@@ -78,22 +89,22 @@ public class OrcBoss : Character
         GameManager.Instance.player.TakeDamage(false,damage);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            StopAllCoroutines();
             GameManager.Instance.gameState = GameManager.GameState.DIALOGUE;
             GameManager.Instance.dialogueManager.ChangeDialogue(healthLostDialogue);
             GameManager.Instance.dialogueManager.PlayDialogue();
-            Debug.Log("Boss Dead");
         }
         else if(currentLust >= 100)
         {
+            StopAllCoroutines();
             GameManager.Instance.gameState = GameManager.GameState.DIALOGUE;
             GameManager.Instance.dialogueManager.ChangeDialogue(lustLostDialogue);
             GameManager.Instance.dialogueManager.PlayDialogue();
-            Debug.Log("Boss Horny");
         }
     }
 }

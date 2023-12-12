@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3779251263416372014}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 309.77008, y: 213.44742, z: -2.539804}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -54,6 +54,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cacaebf3dc8732f4a98bfb5958d88945, type: 3}
   - {fileID: 8300000, guid: d319f9e74ee4fe643a1e5f4856f3f6fc, type: 3}
   menuButton: {fileID: 0}
+  wordPop: {fileID: 8300000, guid: 3f9c17a991457b64b95c241531f456ba, type: 3}
 --- !u!1 &3779251264648348161
 GameObject:
   m_ObjectHideFlags: 0
